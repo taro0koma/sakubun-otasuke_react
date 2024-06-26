@@ -9,8 +9,9 @@ function Content4() {
   const generateAdvice = async () => {
     try {
       //URLのドメインは本番環境では必要なし
-      const response = await fetch("http://localhost:3000/api/openai", {
-   // const response = await fetch("/api/openai", {
+      // const response = await fetch("http://localhost:3000/api/openai", {
+        const response = await fetch("api/openai", {
+      // const response = await fetch("/api/openai", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
