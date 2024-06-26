@@ -1,0 +1,12 @@
+---
+// src/pages/content1.astro
+
+import Content from '../components/Content5.jsx';
+import MainLayout from '../layouts/MainLayout.astro';
+const pageTitle = "その他";
+---
+
+<MainLayout title={pageTitle}>
+  <Content client:load />
+</MainLayout>
+

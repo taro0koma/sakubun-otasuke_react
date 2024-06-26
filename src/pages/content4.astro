@@ -1,0 +1,12 @@
+---
+// src/pages/content1.astro
+
+import Content from '../components/Content4.jsx';
+import MainLayout from '../layouts/MainLayout.astro';
+const pageTitle = "かっこいい書き出しおみくじ";
+---
+
+<MainLayout title={pageTitle}>
+  <Content client:load />
+</MainLayout>
+

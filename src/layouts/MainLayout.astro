@@ -1,0 +1,57 @@
+---
+const {title} = Astro.props;
+import "../styles/main.css";
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title || "作文おたすけアプリ"}</title>
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          {title || "作文おたすけアプリ"}
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <header class="navbar is-primary">
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="/">Home</a>
+            <a class="navbar-item" href="/content1">段落の組み立て</a>
+            <a class="navbar-item" href="/content2">表現ぴったり探し</a>
+            <a class="navbar-item" href="/content3">登場人物の性格を表す言葉</a>
+            <a class="navbar-item" href="/content4">かっこいい書き出しおみくじ</a>
+            <a class="navbar-item" href="/content5">その他</a>
+          </div>
+        </div>
+      </header>
+    </nav>
+    <main class="section">
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>&copy; 2024 作文おたすけアプリ</p>
+      </div>
+    </footer>
+  </body>
+</html>
