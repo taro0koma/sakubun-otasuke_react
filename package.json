@@ -1,0 +1,30 @@
+{
+  "name": "tutorial",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/db": "^0.11.6",
+    "@astrojs/node": "^8.3.1",
+    "@astrojs/react": "^3.6.0",
+    "astro": "^4.11.0",
+    "bulma": "^1.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.3",
+    "preact": "^10.22.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0"
+  }
+}

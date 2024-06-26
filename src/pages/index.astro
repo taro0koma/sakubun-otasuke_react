@@ -1,0 +1,89 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+const authorization = Astro.request.headers.get("authorization");
+const pieces = authorization?.split(/\s+/g);
+
+if (authorization) {
+  if (pieces) {
+    if (pieces.length===2 && pieces[0] === "Basic") {
+      const buffer = Buffer.from(pieces[1], "base64");
+      const credentials = buffer.toString();
+      console.log(credentials);
+      const [username, password] = credentials.split(":");
+
+      if (
+        username === import.meta.env.ADMIN_ID &&
+        password === import.meta.env.ADMIN_PASSWORD
+      ) {
+        Astro.response.status = 200;
+        Astro.response.headers.delete("WWW-Authenticate");
+        Astro.response.headers.delete("Content-Length");
+      } else {
+        Astro.response.status = 401;
+        Astro.response.headers.set("WWW-Authenticate", 'Basic realm="realm"');
+        Astro.response.headers.set("Content-Length", "0");
+      }
+    } else {
+      Astro.response.status = 401;
+      Astro.response.headers.set("WWW-Authenticate", 'Basic realm="realm"');
+      Astro.response.headers.set("Content-Length", "0");
+    }
+  } else {
+    Astro.response.status = 401;
+    Astro.response.headers.set("WWW-Authenticate", 'Basic realm="realm"');
+    Astro.response.headers.set("Content-Length", "0");
+  }
+} else {
+  Astro.response.status = 401;
+  Astro.response.headers.set("WWW-Authenticate", 'Basic realm="realm"');
+  Astro.response.headers.set("Content-Length", "0");
+}
+---
+
+<section class="content">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Top Page</title>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+      />
+    </head>
+    <body>
+      <section class="section">
+        <div class="container">
+          <h1 class="title">Welcome to Our Service</h1>
+          <div class="buttons">
+            <a class="button is-link" href="/content1">段落の組み立て</a>
+            <a class="button is-info" href="/content2">表現ぴったり探し</a>
+            <a class="button is-success" href="/content3">登場人物の性格を表す言葉</a>
+            <a class="button is-warning" href="/content4">かっこいい書き出しおみくじ</a>
+            <a class="button is-primary" href="/content5">その他</a>
+          </div>
+        </div>
+      </section>
+    </body>
+  </html>
+</section>
+
+<!-- <MainLayout title="かっこいい書き出しおみくじ">
+  <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content 1 Page</title>
+</head>
+<body>
+  <astro-doc>
+    <template lang="jsx">
+      <div>
+        <Content1 />
+      </div>
+    </template>
+  </astro-doc>
+</body>
+</html>
+  <Content />
+</MainLayout> -->
