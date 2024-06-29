@@ -14,6 +14,8 @@ const path = require('path');
 const OpenAI = require('openai');
 const cors = require('cors');
 
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
+
 console.log('AUTH_USER:', process.env.ADMIN_PASSWORD);
 
 // OpenAI APIの設定
@@ -21,7 +23,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const PORT = process.env.PORT || 3000;
-const HOST = '0.0.0.0'
+// const HOST = '0.0.0.0'
 
 const app = express();
 app.use(cors());
@@ -84,5 +86,6 @@ app.post('/api/openai2', async (req, res) => {
 
 // サーバーの起動
 app.listen(PORT, () => {
-  console.log(`Server is running on http://${HOST}:${PORT}`);
+  // console.log(`Server is running on http://${HOST}:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

@@ -16,7 +16,7 @@ function Content4() {
           "Content-Type": "application/json",
           Authorization: "Basic bWl0b3VqcjpiTTlSeXFyNA==", // headersのAuthorizationはBasic認証を外す時必要なし
         },
-        body: JSON.stringify({ prompt: userInput }),
+        body: JSON.stringify({ prompt: `${userInput}という人物の性格を10パターン用意してください。` }),
       });
 
       if (!response.ok) {
@@ -34,7 +34,7 @@ function Content4() {
 
   return (
     <div>
-      <h2>段落の組み立て</h2>
+      <h2>登場人物の性格を表す言葉</h2>
       <div className="field">
         <label className="label">作文に書きたい項目を教えてね:</label>
         <div className="control">

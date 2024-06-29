@@ -1,8 +1,8 @@
-// src/components/Content4.jsx
+// src/components/Content3.jsx
 //server.jsとnpm どちらも立ち上げる！！！
 import React, { useState } from "react";
 
-function Content4() {
+function Content3() {
   // const [userInput, setUserInput] = useState("");
   const [userInput1,setUserInput1] = useState("");
   const [userInput2,setUserInput2] = useState("");
@@ -91,4 +91,4 @@ function Content4() {
   );
 }
 
-export default Content4;
+export default Content3;
