@@ -5,7 +5,7 @@ import node from '@astrojs/node';
 export default defineConfig({
   integrations: [react()],
   output: 'server',
-  buildOptiions:{
+  buildOptions:{
     site:'https://sakubun-otasuke_leact.onrender.com',
     sitemap:true,
   },
