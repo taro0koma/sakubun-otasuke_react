@@ -13,6 +13,8 @@ const basicAuth = require('express-basic-auth');
 const path = require('path');
 const OpenAI = require('openai');
 const cors = require('cors');
+// SSRハンドラー
+const { handler: astroHandler } = require('@astrojs/renderer');
 
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 
@@ -84,9 +86,15 @@ app.post('/api/openai2', async (req, res) => {
   }
 });
 
-// AstroのSSRエントリーポイント
-const { handler } = require('./dist/server/entry.mjs');
-app.get('*', handler); 
+// Astro SSR ハンドラー
+app.get('/', async (req, res) => {
+  try {
+    await astroHandler(req, res);
+  } catch (error) {
+    console.error('Error handling request:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 // サーバーの起動
 app.listen(PORT,'0.0.0.0', () => {
