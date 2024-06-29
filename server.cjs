@@ -1,20 +1,20 @@
-// import express from 'express';
-// import basicAuth from 'express-basic-auth';
-// import path from 'path';
-// import dotenv from 'dotenv';
-// import OpenAI from 'openai';
-// import { handler as ssrHandler } from './dist/server/entry.mjs'
-// import cors from 'cors';
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
+// dotenv.config();
+
+// const express = require('express');
+// const basicAuth = require('express-basic-auth');
+// const path = require('path');
+// const OpenAI = require('openai');
+// const cors = require('cors');
+
+import dotenv from 'dotenv';
 dotenv.config();
 
-const express = require('express');
-const basicAuth = require('express-basic-auth');
-const path = require('path');
-const OpenAI = require('openai');
-const cors = require('cors');
-// SSRハンドラー
-const { handler: astroHandler } = require('@astrojs/renderer');
+import express from 'express';
+import basicAuth from 'express-basic-auth';
+import path from 'path';
+import OpenAI from 'openai';
+import cors from 'cors';
 
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 
@@ -87,14 +87,7 @@ app.post('/api/openai2', async (req, res) => {
 });
 
 // Astro SSR ハンドラー
-app.get('/', async (req, res) => {
-  try {
-    await astroHandler(req, res);
-  } catch (error) {
-    console.error('Error handling request:', error);
-    res.status(500).send('Internal Server Error');
-  }
-});
+app.use(ssrHandler);
 
 // サーバーの起動
 app.listen(PORT,'0.0.0.0', () => {
