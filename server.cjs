@@ -30,7 +30,9 @@ app.use(cors());
 
 // リクエストボディの解析
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'dist')));
+// app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist/client')));
+
 
 // Basic認証の設定
 app.use(basicAuth({
@@ -82,7 +84,9 @@ app.post('/api/openai2', async (req, res) => {
   }
 });
 
-// app.use(ssrHandler);
+// AstroのSSRエントリーポイント
+const { handler } = require('./dist/server/entry.mjs');
+app.get('*', handler); 
 
 // サーバーの起動
 app.listen(PORT,'0.0.0.0', () => {
