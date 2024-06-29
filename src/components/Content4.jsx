@@ -35,9 +35,9 @@ function Content4() {
 
   return (
     <div>
-      <h2>Advice Generator</h2>
+      <h2>段落の組み立て</h2>
       <div className="field">
-        <label className="label">Enter your input:</label>
+        <label className="label">作文に書きたい項目を教えてね:</label>
         <div className="control">
           <textarea
             className="textarea"
@@ -50,13 +50,13 @@ function Content4() {
       <div className="field">
         <div className="control">
           <button className="button is-primary" onClick={generateAdvice}>
-            Generate Advice
+            アドバイスをお願いする
           </button>
         </div>
       </div>
       {advice && (
         <div className="notification is-success">
-          <strong>Generated Advice:</strong> {advice}
+          <strong>回答:</strong> {advice}
         </div>
       )}
     </div>

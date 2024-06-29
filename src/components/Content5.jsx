@@ -9,9 +9,8 @@ function Content5() {
   const generateAdvice = async () => {
     try {
       //URLのドメインは本番環境では必要なし
-// const response = await fetch("http://localhost:3000/api/openai", {
-  const response = await fetch("api/openai", {   
-    // const response = await fetch("/api/openai", {
+      // const response = await fetch("http://localhost:3000/api/openai", {
+      const response = await fetch("/api/openai", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,9 +34,9 @@ function Content5() {
 
   return (
     <div>
-      <h2>Advice Generator</h2>
+      <h2>表現ぴったり探し</h2>
       <div className="field">
-        <label className="label">Enter your input:</label>
+        <label className="label">調べたい言葉を入れてね:</label>
         <div className="control">
           <textarea
             className="textarea"
@@ -50,13 +49,13 @@ function Content5() {
       <div className="field">
         <div className="control">
           <button className="button is-primary" onClick={generateAdvice}>
-            Generate Advice
+            アドバイスをお願いする
           </button>
         </div>
       </div>
       {advice && (
         <div className="notification is-success">
-          <strong>Generated Advice:</strong> {advice}
+          <strong>回答:</strong> {advice}
         </div>
       )}
     </div>
