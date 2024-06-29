@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-basic-auth": "^1.2.1",
     "mongoose": "^8.4.3",
     "preact": "^10.22.0",
     "react": "^18.3.1",
