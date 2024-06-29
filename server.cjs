@@ -12,7 +12,6 @@ const express = require('express');
 const basicAuth = require('express-basic-auth');
 const path = require('path');
 const OpenAI = require('openai');
-// const { handler as ssrHandler } from './dist/server/entry.mjs';
 const cors = require('cors');
 
 console.log('AUTH_USER:', process.env.ADMIN_PASSWORD);
