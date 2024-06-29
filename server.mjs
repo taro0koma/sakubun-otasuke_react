@@ -16,6 +16,10 @@ import path from 'path';
 import OpenAI from 'openai';
 import cors from 'cors';
 
+// 現在のモジュールのファイルパスを取得(mjs仕様)
+import path from 'path';
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 
 console.log('AUTH_USER:', process.env.ADMIN_PASSWORD);
