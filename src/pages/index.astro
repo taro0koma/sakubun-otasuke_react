@@ -1,11 +1,11 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 const authorization = Astro.request.headers.get("authorization");
 const pieces = authorization?.split(/\s+/g);
 
 if (authorization) {
   if (pieces) {
-    if (pieces.length===2 && pieces[0] === "Basic") {
+    if (pieces.length === 2 && pieces[0] === "Basic") {
       const buffer = Buffer.from(pieces[1], "base64");
       const credentials = buffer.toString();
       console.log(credentials);
@@ -40,33 +40,15 @@ if (authorization) {
 }
 ---
 
-<section class="content">
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Top Page</title>
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-      />
-    </head>
-    <body>
-      <section class="section">
-        <div class="container">
-          <h1 class="title">Welcome to Our Service</h1>
-          <div class="buttons">
-            <a class="button is-link" href="/content1">イメージマップ作成ツール</a>
-            <a class="button is-info" href="/content2">かっこいい書き出しおみくじ</a>
-            <a class="button is-success" href="/content3">段落の組み立て</a>
-            <a class="button is-warning" href="/content4">登場人物の性格を表す言葉</a>
-            <a class="button is-primary" href="/content5">表現ぴったり探し</a>
-          </div>
-        </div>
-      </section>
-    </body>
-  </html>
-</section>
+<MainLayout title="作文おたすけアプリ">
+  <div class="buttons">
+    <a class="button is-link" href="/content1">イメージマップ作成ツール</a>
+    <a class="button is-info" href="/content2">かっこいい書き出しおみくじ</a>
+    <a class="button is-success" href="/content3">段落の組み立て</a>
+    <a class="button is-warning" href="/content4">登場人物の性格を表す言葉</a>
+    <a class="button is-primary" href="/content5">表現ぴったり探し</a>
+  </div>
+</MainLayout>
 
 <!-- <MainLayout title="かっこいい書き出しおみくじ">
   <html lang="en">

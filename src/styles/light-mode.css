@@ -1,0 +1,38 @@
+:root{
+  --bulma-body-background-color:white;
+  --background-color:white;
+  --text-color:#272829;
+}
+
+body{
+  background-color: white;
+  color: #272829;
+}
+
+.navbar, .footer, .hero, .section {
+  background-color: white;
+  color:#272829;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bulma-body-background-color:white;
+    --background-color:white;
+    --text-color:#272829;
+  }
+  body{
+    background-color: white;
+    color: #272829;
+  }
+  .navbar, .footer, .hero, .section {
+    background-color: white;
+    color:#272829;
+  }
+}
+main{
+position: relative;
+min-height: 100vh;
+padding-bottom: 100px;
+}
+.footer{
+  position: sticky;
+}

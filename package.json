@@ -3,8 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev --port 4320",
-    "start": "node server.cjs",
+    "dev": "astro dev --host 0.0.0.0",
+    "start": "npm run start:prod",
+    "start:dev":"astro dev --host 0.0.0.0",
+    "start:prod":"node server.cjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

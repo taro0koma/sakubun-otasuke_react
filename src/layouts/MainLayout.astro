@@ -8,13 +8,16 @@ import "../styles/main.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title || "作文おたすけアプリ"}</title>
+    <title>{title + "| 作文おたすけアプリ"}</title>
   </head>
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
-          {title || "作文おたすけアプリ"}
+          <h1 class="app-logo">
+            作文<span class="app">アプリ</span><br />
+            <span class="otasuke">おたすけ</span>
+          </h1>
         </a>
 
         <a
