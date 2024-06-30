@@ -28,7 +28,7 @@ console.log('AUTH_USER:', process.env.ADMIN_PASSWORD);
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 // const HOST = '0.0.0.0'
 
 const app = express();
