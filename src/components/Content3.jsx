@@ -1,4 +1,3 @@
-// src/components/Content3.jsx
 //server.jsとnpm どちらも立ち上げる！！！
 import React, { useState } from "react";
 
@@ -40,7 +39,7 @@ function Content3() {
   return (
     <div>
       <h2>段落の組み立て</h2>
-      <form>
+      <form onSubmit={generateAdvice}>
         <div className="field">
           <label className="label">作文に書きたい項目を教えてね:</label>
           {/* <div className="control">
@@ -76,7 +75,7 @@ function Content3() {
 
         <div className="field">
           <div className="control">
-            <button className="button is-primary" onClick={generateAdvice}>
+            <button className="button is-primary" type="submit">
               アドバイスをお願いする
             </button>
           </div>
