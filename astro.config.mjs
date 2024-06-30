@@ -20,6 +20,7 @@ export default defineConfig({
           return {
             esbuild: {
               loader: 'jsx', // loaderオプションを文字列で指定
+              jsxInject: `import ReactRefreshRuntime from 'react-refresh/runtime'`,
             },
             optimizeDeps: {
               include: ['react', 'react-dom'],
