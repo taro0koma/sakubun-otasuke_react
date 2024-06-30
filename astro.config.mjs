@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import node from '@astrojs/node';
 
+const isDevelopment = import.meta.env.DEV;
+
 export default defineConfig({
   integrations: [react()],
   vite: {
@@ -13,22 +15,17 @@ export default defineConfig({
     },
     plugins: [
       {
-        // name: 'disable-fast-refresh',
         name: 'react-refresh-plugin',
-        apply: 'serve',
-        config() {
-          return {
-            esbuild: {
-              loader: 'jsx', // loaderオプションを文字列で指定
-              jsxInject: `import ReactRefreshRuntime from 'react-refresh/runtime'`,
-            },
-            optimizeDeps: {
-              include: ['react', 'react-dom'],
-            }
-          }
-        }
-      }
-    ]
+        apply: 'serve', // 開発環境でのみ適用
+        config: {
+          optimizeDeps: {
+            include: ['react', 'react-dom'],
+          },
+          // 本番環境ではReact Refreshを無効にする
+          optimize: isDevelopment ? undefined : false,
+        },
+      },
+    ],
   },
   output: 'server',
   buildOptions: {
