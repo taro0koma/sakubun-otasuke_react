@@ -13,7 +13,8 @@ export default defineConfig({
     },
     plugins: [
       {
-        name: 'disable-fast-refresh',
+        // name: 'disable-fast-refresh',
+        name: 'react-refresh-plugin',
         apply: 'serve',
         config() {
           return {

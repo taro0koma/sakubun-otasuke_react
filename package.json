@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "start": "npm run start:prod",
-    "start:dev":"astro dev --host 0.0.0.0",
-    "start:prod":"node server.mjs",
+    "start:dev": "astro dev --host 0.0.0.0",
+    "start:prod": "node server.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0"
+    "@types/react-dom": "^18.3.0",
+    "react-refresh": "^0.14.2"
   }
 }
