@@ -95,7 +95,8 @@ app.post('/api/openai2', async (req, res) => {
 app.use(ssrHandler);
 
 // サーバーの起動
-app.listen(PORT,'0.0.0.0', () => {
+// app.listen(PORT,'0.0.0.0', () => {
+  app.listen(PORT, () => {
   // console.log(`Server is running on http://${HOST}:${PORT}`);
   console.log(`Server is running on http://localhost:${PORT}`);
 });
