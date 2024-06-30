@@ -4,13 +4,18 @@ import node from '@astrojs/node';
 
 export default defineConfig({
   integrations: [react()],
-  vite:{
-    server:{
-      hmr:process.env.NODE_ENV === 'development',
+  vite: {
+    server: {
+      hmr: process.env.NODE_ENV === 'development',
     },
-    build:{
+    build: {
       outDir: 'dist', //出力ディレクトリをdistに設定
     },
+    plugins: [
+      react({
+        fastRefresh: false
+      })
+    ]
   },
   output: 'server',
   buildOptions: {
