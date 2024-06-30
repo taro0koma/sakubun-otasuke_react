@@ -18,9 +18,7 @@ export default defineConfig({
         config() {
           return {
             esbuild: {
-              loader: {
-                '.jsx': 'jsx'
-              },
+              loader: 'jsx', // loaderオプションを文字列で指定
             },
             optimizeDeps: {
               include: ['react', 'react-dom'],
