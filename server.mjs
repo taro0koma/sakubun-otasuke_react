@@ -15,7 +15,7 @@ import basicAuth from 'express-basic-auth';
 import path from 'path';
 import OpenAI from 'openai';
 import cors from 'cors';
-import {handler as ssrHandler} from '../dist/server/entry.mjs';
+import {handler as ssrHandler} from './dist/server/entry.mjs';
 
 // 現在のモジュールのファイルパスを取得(mjs仕様)
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
