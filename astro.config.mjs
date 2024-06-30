@@ -12,9 +12,23 @@ export default defineConfig({
       outDir: 'dist', //出力ディレクトリをdistに設定
     },
     plugins: [
-      react({
-        fastRefresh: false
-      })
+      {
+        name: 'disable-fast-refresh',
+        apply: 'serve',
+        config() {
+          return {
+            esbuild: {
+              jsxInject: `import React from 'react'`,
+              loader: {
+                '.js': 'jsx'
+              },
+            },
+            optimizeDeps: {
+              include: ['react', 'react-dom'],
+            }
+          }
+        }
+      }
     ]
   },
   output: 'server',
@@ -29,5 +43,5 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone',
   }),
-  publicDir: 'public', // public フォルダを指定
+  publicDir: 'public', // 本番環境でfastRefreshを作動しないためpublicフォルダを指定
 });
