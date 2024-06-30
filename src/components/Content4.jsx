@@ -10,13 +10,15 @@ function Content4() {
     try {
       //URLのドメインは本番環境では必要なし
       // const response = await fetch("http://localhost:3000/api/openai", {
-        const response = await fetch("/api/openai", {
+      const response = await fetch("/api/openai", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Basic bWl0b3VqcjpiTTlSeXFyNA==", // headersのAuthorizationはBasic認証を外す時必要なし
         },
-        body: JSON.stringify({ prompt: `${userInput}という人物の性格を10パターン用意してください。` }),
+        body: JSON.stringify({
+          prompt: `${userInput}という人物の性格を10パターン用意してください。`,
+        }),
       });
 
       if (!response.ok) {
@@ -35,24 +37,28 @@ function Content4() {
   return (
     <div>
       <h2>登場人物の性格を表す言葉</h2>
-      <div className="field">
-        <label className="label">作文に書きたい項目を教えてね:</label>
-        <div className="control">
-          <textarea
-            className="textarea"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            rows={5}
-          ></textarea>
+      <form>
+        <div className="field">
+          <label className="label">作文に書きたい項目を教えてね:</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name="priority"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              required
+            />
+          </div>
         </div>
-      </div>
-      <div className="field">
-        <div className="control">
-          <button className="button is-primary" onClick={generateAdvice}>
-            アドバイスをお願いする
-          </button>
+        <div className="field">
+          <div className="control">
+            <button className="button is-primary" onClick={generateAdvice}>
+              アドバイスをお願いする
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
       {advice && (
         <div className="notification is-success">
           <strong>回答:</strong> {advice}
