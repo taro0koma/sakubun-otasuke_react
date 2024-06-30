@@ -9,7 +9,7 @@ export default defineConfig({
       hmr:process.env.NODE_ENV === 'development',
     },
     build:{
-      outDir: 'dist',
+      outDir: 'dist', //出力ディレクトリをdistに設定
     },
   },
   output: 'server',

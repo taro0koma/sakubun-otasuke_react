@@ -15,8 +15,6 @@ import basicAuth from 'express-basic-auth';
 import path from 'path';
 import OpenAI from 'openai';
 import cors from 'cors';
-import { ssrHandler } from './path/to/ssrHandlerModule'; // ssrHandlerが定義されているモジュールのパスを正しく指定する
-
 
 // 現在のモジュールのファイルパスを取得(mjs仕様)
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
@@ -92,7 +90,9 @@ app.post('/api/openai2', async (req, res) => {
 });
 
 // Astro SSR ハンドラー
-app.use(ssrHandler);
+import { ssr } from '../dist/server/entry.mjs';  // ここでSSRエントリーポイントをインポート
+
+app.use(ssr);
 
 // サーバーの起動
 app.listen(PORT,'0.0.0.0', () => {
