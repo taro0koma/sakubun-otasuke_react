@@ -17,6 +17,9 @@ import OpenAI from 'openai';
 import cors from 'cors';
 import {handler as ssrHandler} from './dist/server/entry.mjs';
 
+// react refreshを使用
+import { setGlobalRefreshHandler } from 'react-refresh';
+
 // 現在のモジュールのファイルパスを取得(mjs仕様)
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -91,8 +94,19 @@ app.post('/api/openai2', async (req, res) => {
 });
 
 // Astro SSR ハンドラー
-
 app.use(ssrHandler);
+
+// React Refresh runtime を使用する
+function installGlobalHook(window) {
+  const ReactRefreshRuntime = require('react-refresh/runtime');
+  ReactRefreshRuntime.injectIntoGlobalHook(window);
+  window.$RefreshReg$ = () => {};
+  window.$RefreshSig$ = () => (type) => type;
+  window.__vite_plugin_react_preamble_installed__ = true;
+}
+
+//  global refresh ハンドラー
+setGlobalRefreshHandler(installGlobalHook);
 
 // サーバーの起動
 // app.listen(PORT,'0.0.0.0', () => {
