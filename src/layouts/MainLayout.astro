@@ -57,5 +57,15 @@ import "../styles/main.css";
         <p>&copy; 2024 作文おたすけアプリ</p>
       </div>
     </footer>
+
+    <!-- react refreshエラーを回避する -->
+    <script type="module">
+      import RefreshRuntime from '/@react-refresh'; // ローカルのパスに修正する
+      RefreshRuntime.injectIntoGlobalHook(window);
+      window.$RefreshReg$ = () => {};
+      window.$RefreshSig$ = () => (type) => type;
+      window.__vite_plugin_react_preamble_installed__ = true;
+    </script>
+
   </body>
 </html>
