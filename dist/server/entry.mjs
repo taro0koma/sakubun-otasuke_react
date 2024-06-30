@@ -2712,7 +2712,7 @@ const _args = {
     "client": "file:///C:/Users/user/Desktop/works/astro-study/tutorial2/tutorial/dist/client/",
     "server": "file:///C:/Users/user/Desktop/works/astro-study/tutorial2/tutorial/dist/server/",
     "host": "0.0.0.0",
-    "port": 4321,
+    "port": 3000,
     "assets": "_astro"
 };
 const _exports = createExports(_manifest, _args);
