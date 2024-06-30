@@ -8,6 +8,9 @@ export default defineConfig({
     server:{
       hmr:process.env.NODE_ENV === 'development',
     },
+    build:{
+      outDir: 'dist',
+    },
   },
   output: 'server',
   buildOptions: {
